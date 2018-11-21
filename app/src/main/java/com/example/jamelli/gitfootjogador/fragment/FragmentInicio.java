@@ -9,14 +9,13 @@ import android.view.ViewGroup;
 
 import com.example.jamelli.gitfootjogador.R;
 
-public class FragmentCadastro extends Fragment {
-    public FragmentCadastro() {
+public class FragmentInicio extends Fragment{
+    public FragmentInicio() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle b) {
-        View v = inflater.inflate(R.layout.fragment_cadastro, container, false);
+        View v = inflater.inflate(R.layout.fragment_inicio, container, false);
         return v;
     }
-
 }

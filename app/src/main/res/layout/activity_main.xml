@@ -10,8 +10,21 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="296dp"
-        android:text="Button"
+        android:layout_marginEnd="124dp"
+        android:layout_marginTop="68dp"
+        android:onClick="entrarMenu"
+        android:text="Menu estilo PA"
         app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="entrarMenu"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="52dp"
+        android:onClick="clickDrawer"
+        android:text="NavDrawer"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 </android.support.constraint.ConstraintLayout>

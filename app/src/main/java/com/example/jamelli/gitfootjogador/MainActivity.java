@@ -16,4 +16,8 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(),DrawerActivity.class);
         startActivity(i);
     }
+    public void clickDrawer(View v){
+        Intent i = new Intent(getApplicationContext(),JogadorActivity.class);
+        startActivity(i);
+    }
 }
