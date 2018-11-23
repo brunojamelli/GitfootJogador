@@ -5,13 +5,13 @@ public class Jogador {
     private String email;
     private String pe_melhor;
     private String posicao;
-    private String pretencao_salarial;
-    private String pretencao_contratual;
+    private double pretencao_salarial;
+    private double pretencao_contratual;
 
     public Jogador() {
     }
 
-    public Jogador(String photoUrl, String email, String pe_melhor, String posicao, String pretencao_salarial, String pretencao_contratual) {
+    public Jogador(String photoUrl, String email, String pe_melhor, String posicao, double pretencao_salarial, double pretencao_contratual) {
         this.photoUrl = photoUrl;
         this.email = email;
         this.pe_melhor = pe_melhor;
@@ -20,13 +20,12 @@ public class Jogador {
         this.pretencao_contratual = pretencao_contratual;
     }
 
-    public Jogador(String email, String pe_melhor, String posicao, String pretencao_salarial, String pretencao_contratual) {
+    public Jogador(String email, String pe_melhor, String posicao, double pretencao_salarial, double pretencao_contratual) {
         this.email = email;
         this.pe_melhor = pe_melhor;
         this.posicao = posicao;
         this.pretencao_salarial = pretencao_salarial;
         this.pretencao_contratual = pretencao_contratual;
-        this.photoUrl = "";
     }
 
     public String getPhotoUrl() {
@@ -61,19 +60,19 @@ public class Jogador {
         this.posicao = posicao;
     }
 
-    public String getPretencao_salarial() {
+    public double getPretencao_salarial() {
         return pretencao_salarial;
     }
 
-    public void setPretencao_salarial(String pretencao_salarial) {
+    public void setPretencao_salarial(double pretencao_salarial) {
         this.pretencao_salarial = pretencao_salarial;
     }
 
-    public String getPretencao_contratual() {
+    public double getPretencao_contratual() {
         return pretencao_contratual;
     }
 
-    public void setPretencao_contratual(String pretencao_contratual) {
+    public void setPretencao_contratual(double pretencao_contratual) {
         this.pretencao_contratual = pretencao_contratual;
     }
 }

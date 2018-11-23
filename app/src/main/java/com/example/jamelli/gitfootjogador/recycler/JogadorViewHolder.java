@@ -9,7 +9,7 @@ import com.example.jamelli.gitfootjogador.R;
 
 public class JogadorViewHolder extends RecyclerView.ViewHolder{
     final ImageView photoImageView;
-    final TextView textEmail;
+    final TextView emailTextView;
     final TextView peTextView;
     final TextView posicaoTextView;
     final TextView psTextView;
@@ -18,7 +18,7 @@ public class JogadorViewHolder extends RecyclerView.ViewHolder{
     public JogadorViewHolder(View v){
         super(v);
         photoImageView = v.findViewById(R.id.photoImageView);
-        textEmail = v.findViewById(R.id.emailTextView);
+        emailTextView = v.findViewById(R.id.emailTextView);
         peTextView = v.findViewById(R.id.peTextView);
         posicaoTextView = v.findViewById(R.id.posicaoTextView);
         psTextView = v.findViewById(R.id.psTextView);

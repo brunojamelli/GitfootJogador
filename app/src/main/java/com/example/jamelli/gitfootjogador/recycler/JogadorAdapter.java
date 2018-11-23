@@ -6,12 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.jamelli.gitfootjogador.R;
+import com.example.jamelli.gitfootjogador.modelo.Jogador;
+
+import java.util.List;
 
 public class JogadorAdapter extends RecyclerView.Adapter{
     Context context;
-    public JogadorAdapter(Context c){
+    List<Jogador> jogadores;
+    public JogadorAdapter(Context c,List<Jogador> j){
+
         this.context = c;
+        this.jogadores = j;
     }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -21,14 +28,28 @@ public class JogadorAdapter extends RecyclerView.Adapter{
     }
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        JogadorViewHolder frutaholder = (JogadorViewHolder) holder;
-        //Fruta frutaescolhida = listaFrutas.get(position);
+        final JogadorViewHolder jholder = (JogadorViewHolder) holder;
+        final Jogador jchoise = jogadores.get(position);
+        boolean photo = jchoise.getPhotoUrl() != null;
+        if(photo){
+            jholder.photoImageView.setVisibility(View.VISIBLE);
+            Glide.with(jholder.photoImageView.getContext())
+                    .load(jchoise.getPhotoUrl())
+                    .into(jholder.photoImageView);
+        }else{
+            jholder.photoImageView.setVisibility(View.GONE);
+        }
+        jholder.emailTextView.setText(jchoise.getEmail());
+        jholder.posicaoTextView.setText(jchoise.getPosicao());
+        jholder.peTextView.setText(jchoise.getPe_melhor());
+        jholder.psTextView.setText(String.valueOf(jchoise.getPretencao_salarial()));
+        jholder.pcTextView.setText(String.valueOf(jchoise.getPretencao_contratual()));
         //frutaholder.textViewNome.setText(frutaescolhida.getNome());
         //frutaholder.img.setImageResource(frutaescolhida.getImg());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return jogadores == null ? 0 : jogadores.size();
     }
 }
