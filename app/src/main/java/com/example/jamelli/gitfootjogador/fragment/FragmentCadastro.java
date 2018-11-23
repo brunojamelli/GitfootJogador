@@ -16,6 +16,7 @@ public class FragmentCadastro extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle b) {
         View v = inflater.inflate(R.layout.fragment_cadastro, container, false);
+
         return v;
     }
 

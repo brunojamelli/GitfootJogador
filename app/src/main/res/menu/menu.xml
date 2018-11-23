@@ -3,17 +3,21 @@
         <item
             android:id="@+id/nav_first_fragment"
             android:icon="@drawable/um"
-            android:title="First"
+            android:title="Inicio"
             android:checked="true"/>
 
         <item
             android:id="@+id/nav_second_fragment"
             android:icon="@drawable/dois"
-            android:title="Second" />
+            android:title="Cadastrar Jogador" />
 
         <item
             android:id="@+id/nav_third_fragment"
             android:icon="@drawable/tres"
-            android:title="Third" />
+            android:title="Editar Jogador" />
+        <item
+            android:id="@+id/nav_four_fragment"
+            android:icon="@drawable/tres"
+            android:title="Mostrar Jogadores" />
     </group>
 </menu>
