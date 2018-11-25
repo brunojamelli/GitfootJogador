@@ -16,7 +16,7 @@
         android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"/>
-
+<!--
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName" />
-
+-->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"

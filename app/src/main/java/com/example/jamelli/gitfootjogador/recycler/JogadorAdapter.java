@@ -40,10 +40,17 @@ public class JogadorAdapter extends RecyclerView.Adapter{
             jholder.photoImageView.setVisibility(View.GONE);
         }
         jholder.emailTextView.setText(jchoise.getEmail());
+        jholder.nomeTextView.setText(jchoise.getNome());
         jholder.posicaoTextView.setText(jchoise.getPosicao());
-        jholder.peTextView.setText(jchoise.getPe_melhor());
-        jholder.psTextView.setText(String.valueOf(jchoise.getPretencao_salarial()));
-        jholder.pcTextView.setText(String.valueOf(jchoise.getPretencao_contratual()));
+        if(jchoise.getPe_melhor().equals("direito")){
+            jholder.peTextView.setText("destro");
+        }else if(jchoise.getPe_melhor().equals("esquerdo")){
+            jholder.peTextView.setText("canhoto");
+        }else{
+            jholder.peTextView.setText("ambidestro");
+        }
+        jholder.psTextView.setText("Pretenção salarial "+String.valueOf(jchoise.getPretencao_salarial()));
+        jholder.pcTextView.setText("Pretenção Contratual "+String.valueOf(jchoise.getPretencao_contratual()));
         //frutaholder.textViewNome.setText(frutaescolhida.getNome());
         //frutaholder.img.setImageResource(frutaescolhida.getImg());
     }
