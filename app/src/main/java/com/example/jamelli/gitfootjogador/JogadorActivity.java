@@ -43,20 +43,37 @@ public class JogadorActivity extends AppCompatActivity {
                     case R.id.nav_first_fragment:
                         frags = new FragmentInicio();
                         drawer.closeDrawer(GravityCompat.START);
-                        Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nav_second_fragment:
                         frags = new FragmentCadastro();
                         drawer.closeDrawer(GravityCompat.START);
-                        Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.nav_third_fragment:
                         frags = new FragmentMostrar();
                         drawer.closeDrawer(GravityCompat.START);
-                        Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
 
+                    case R.id.nav_fourth_fragment:
+                        frags = new FragmentCadastro();
+                        drawer.closeDrawer(GravityCompat.START);
+                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.nav_fifth_fragment:
+                        frags = new FragmentMostrar();
+                        drawer.closeDrawer(GravityCompat.START);
+                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.nav_sixth_fragment:
+                        frags = new FragmentMostrar();
+                        drawer.closeDrawer(GravityCompat.START);
+                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
+                        break;
                 }
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, frags).commit();

@@ -5,8 +5,8 @@ public class Jogador {
     private String email;
     private String pe_melhor;
     private String posicao;
-    private double pretencao_salarial;
-    private double pretencao_contratual;
+    private Double pretencao_salarial;
+    private Double pretencao_contratual;
 
     public Jogador() {
     }
@@ -60,7 +60,7 @@ public class Jogador {
         this.posicao = posicao;
     }
 
-    public double getPretencao_salarial() {
+    public Double getPretencao_salarial() {
         return pretencao_salarial;
     }
 
@@ -68,7 +68,7 @@ public class Jogador {
         this.pretencao_salarial = pretencao_salarial;
     }
 
-    public double getPretencao_contratual() {
+    public Double getPretencao_contratual() {
         return pretencao_contratual;
     }
 

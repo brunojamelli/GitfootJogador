@@ -14,10 +14,19 @@
         <item
             android:id="@+id/nav_third_fragment"
             android:icon="@drawable/tres"
-            android:title="Editar Jogador" />
+            android:title="Mostrar Jogador" />
         <item
-            android:id="@+id/nav_four_fragment"
+            android:id="@+id/nav_fourth_fragment"
             android:icon="@drawable/tres"
-            android:title="Mostrar Jogadores" />
+            android:title="Editar Jogadores" />
+        <item
+            android:id="@+id/nav_fifth_fragment"
+            android:icon="@drawable/tres"
+            android:title="Buscar Jogador" />
+        <item
+            android:id="@+id/nav_sixth_fragment"
+            android:icon="@drawable/tres"
+            android:title="Enviar Localização" />
+
     </group>
 </menu>
