@@ -36,7 +36,23 @@ public class FragmentCadastro extends Fragment {
         btn_cad = v.findViewById(R.id.btnCadJogador);
         initViewObjects(v);
         initDBandAuth();
+        btn_cad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Jogador j = new Jogador(
+                        FirebaseUtil.getJogador().getPhotoUrl(),
+                        FirebaseUtil.getJogador().getEmail(),
+                        FirebaseUtil.getJogador().getNome(),
+                        et_pe.getText().toString(),
+                        et_pisicao.getText().toString(),
+                        Double.parseDouble(et_ps.getText().toString()),
+                        Double.parseDouble(et_pc.getText().toString())
+                );
+                dataref.push().setValue(j);
 
+                clearFields();
+            }
+        });
 
 
         return v;
@@ -93,9 +109,9 @@ public class FragmentCadastro extends Fragment {
         String foto ="";
 
         Jogador j = new Jogador(
-                foto,
-                email,
-                nome,
+                FirebaseUtil.getJogador().getPhotoUrl(),
+                FirebaseUtil.getJogador().getEmail(),
+                FirebaseUtil.getJogador().getNome(),
                 et_pe.getText().toString(),
                 et_pisicao.getText().toString(),
                 Double.parseDouble(et_ps.getText().toString()),

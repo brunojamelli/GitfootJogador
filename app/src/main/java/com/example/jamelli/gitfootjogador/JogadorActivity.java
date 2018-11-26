@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.jamelli.gitfootjogador.fragment.FragmentCadastro;
 import com.example.jamelli.gitfootjogador.fragment.FragmentInicio;
 import com.example.jamelli.gitfootjogador.fragment.FragmentMostrar;
+import com.firebase.ui.auth.AuthUI;
 
 public class JogadorActivity extends AppCompatActivity {
     DrawerLayout drawer;
@@ -74,9 +75,17 @@ public class JogadorActivity extends AppCompatActivity {
                         drawer.closeDrawer(GravityCompat.START);
                         //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
+
+                    case R.id.nav_sair:
+                        drawer.closeDrawer(GravityCompat.START);
+                        AuthUI.getInstance().signOut(JogadorActivity.this);
+                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                if(idItem != R.id.nav_sair){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, frags).commit();
                 }
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, frags).commit();
                 return true;
             }
         });

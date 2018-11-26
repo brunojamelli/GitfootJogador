@@ -28,5 +28,10 @@
             android:icon="@drawable/tres"
             android:title="Enviar Localização" />
 
+        <item
+            android:id="@+id/nav_sair"
+            android:icon="@drawable/tres"
+            android:title="Sair" />
+
     </group>
 </menu>
