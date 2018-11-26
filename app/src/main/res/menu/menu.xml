@@ -9,24 +9,20 @@
         <item
             android:id="@+id/nav_second_fragment"
             android:icon="@drawable/dois"
-            android:title="Cadastrar Jogador" />
+            android:title="Adicionar informações" />
 
         <item
             android:id="@+id/nav_third_fragment"
             android:icon="@drawable/tres"
-            android:title="Mostrar Jogador" />
+            android:title="Veja mais jogadores" />
         <item
             android:id="@+id/nav_fourth_fragment"
             android:icon="@drawable/tres"
-            android:title="Editar Jogadores" />
+            android:title="Editar informações" />
         <item
             android:id="@+id/nav_fifth_fragment"
             android:icon="@drawable/tres"
-            android:title="Buscar Jogador" />
-        <item
-            android:id="@+id/nav_sixth_fragment"
-            android:icon="@drawable/tres"
-            android:title="Enviar Localização" />
+            android:title="Enviar sua localização" />
 
         <item
             android:id="@+id/nav_sair"

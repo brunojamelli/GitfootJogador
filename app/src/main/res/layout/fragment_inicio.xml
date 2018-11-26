@@ -6,12 +6,25 @@
     android:background="@android:color/background_light"
     android:layout_marginTop="100dp"
     android:paddingBottom="15dp"
+    android:orientation="vertical"
     tools:context=".JogadorActivity">
 
 
     <TextView
-        android:id="@+id/tv"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_bv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tela inicial" />
+        android:layout_weight="0.5"
+        android:text="@string/bem_vindo" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_weight="0.5"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="196dp"
+        android:layout_height="196dp"
+        android:src="@drawable/tads"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FF000000"/>
+
 </LinearLayout>

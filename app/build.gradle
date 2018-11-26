@@ -29,6 +29,7 @@ dependencies {
     implementation 'com.android.support:cardview-v7:28.0.0'
     //glide para carregar imagens
     implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
     //firebase
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.firebase:firebase-database:16.0.4'
