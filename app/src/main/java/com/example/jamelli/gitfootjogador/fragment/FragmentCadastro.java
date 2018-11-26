@@ -21,6 +21,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.UUID;
+
 public class FragmentCadastro extends Fragment {
     private Button btn_cad;
     private FirebaseDatabase fdatabase;
@@ -40,6 +42,7 @@ public class FragmentCadastro extends Fragment {
             @Override
             public void onClick(View v) {
                 Jogador j = new Jogador(
+                        UUID.randomUUID().toString(),
                         FirebaseUtil.getJogador().getPhotoUrl(),
                         FirebaseUtil.getJogador().getEmail(),
                         FirebaseUtil.getJogador().getNome(),
@@ -48,7 +51,7 @@ public class FragmentCadastro extends Fragment {
                         Double.parseDouble(et_ps.getText().toString()),
                         Double.parseDouble(et_pc.getText().toString())
                 );
-                dataref.push().setValue(j);
+                dataref.child(j.getUid()).setValue(j);
 
                 clearFields();
             }
@@ -59,7 +62,6 @@ public class FragmentCadastro extends Fragment {
     }
 
     private void initViewObjects(View v){
-        //et_email = v.findViewById(R.id.etEmail);
         et_pe = v.findViewById(R.id.etPe);
         et_pisicao = v.findViewById(R.id.etPos);
         et_ps = v.findViewById(R.id.etPS);
@@ -108,7 +110,9 @@ public class FragmentCadastro extends Fragment {
         String nome = "teste";
         String foto ="";
 
+        /*
         Jogador j = new Jogador(
+
                 FirebaseUtil.getJogador().getPhotoUrl(),
                 FirebaseUtil.getJogador().getEmail(),
                 FirebaseUtil.getJogador().getNome(),
@@ -120,5 +124,6 @@ public class FragmentCadastro extends Fragment {
         dataref.push().setValue(j);
 
         clearFields();
+        */
     }
 }

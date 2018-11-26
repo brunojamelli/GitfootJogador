@@ -9,8 +9,8 @@ public class Jogador extends Pessoa{
     public Jogador() {
     }
 
-    public Jogador(String photoUrl, String email, String nome, String pe_melhor, String posicao, Double pretencao_salarial, Double pretencao_contratual) {
-        super(photoUrl, email, nome);
+    public Jogador(String uid,String photoUrl, String email, String nome, String pe_melhor, String posicao, Double pretencao_salarial, Double pretencao_contratual) {
+        super(uid,photoUrl, email, nome);
         this.pe_melhor = pe_melhor;
         this.posicao = posicao;
         this.pretencao_salarial = pretencao_salarial;

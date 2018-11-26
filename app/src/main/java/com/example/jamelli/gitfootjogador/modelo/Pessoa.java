@@ -4,6 +4,15 @@ public class Pessoa {
     private String photoUrl;
     private String email;
     private String nome;
+    private String Uid;
+
+    public String getUid() {
+        return Uid;
+    }
+
+    public void setUid(String uid) {
+        Uid = uid;
+    }
 
     public String getPhotoUrl() {
         return photoUrl;
@@ -36,5 +45,13 @@ public class Pessoa {
         this.photoUrl = photoUrl;
         this.email = email;
         this.nome = nome;
+    }
+
+    public Pessoa(String uid,String photoUrl, String email, String nome) {
+        this.Uid = uid;
+        this.photoUrl = photoUrl;
+        this.email = email;
+        this.nome = nome;
+
     }
 }

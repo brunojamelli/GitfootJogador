@@ -29,8 +29,8 @@ public class Olheiro extends Pessoa {
         this.empresario = empresario;
     }
 
-    public Olheiro(String photoUrl, String email, String nome, String time, String empresa, String empresario) {
-        super(photoUrl, email, nome);
+    public Olheiro(String uid,String photoUrl, String email, String nome, String time, String empresa, String empresario) {
+        super(uid,photoUrl, email, nome);
         this.time = time;
         this.empresa = empresa;
         this.empresario = empresario;

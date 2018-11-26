@@ -30,7 +30,7 @@ public class FragmentInicio extends Fragment{
         profileFoto = v.findViewById(R.id.profile_image);
         nome = FirebaseUtil.getJogador().getNome();
         photoUrl = FirebaseUtil.getJogador().getPhotoUrl();
-        txInicio.setText(R.string.bem_vindo +""+nome);
+        txInicio.setText(getString(R.string.bem_vindo) +" "+nome);
         Glide.with(profileFoto.getContext())
                 .load(photoUrl)
                 .into(profileFoto);
