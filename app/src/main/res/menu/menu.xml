@@ -12,13 +12,15 @@
             android:title="Adicionar informações" />
 
         <item
-            android:id="@+id/nav_third_fragment"
-            android:icon="@drawable/tres"
-            android:title="Veja mais jogadores" />
-        <item
             android:id="@+id/nav_fourth_fragment"
             android:icon="@drawable/tres"
             android:title="Editar informações" />
+
+        <item
+            android:id="@+id/nav_third_fragment"
+            android:icon="@drawable/tres"
+            android:title="Ver olheiros" />
+
         <item
             android:id="@+id/nav_fifth_fragment"
             android:icon="@drawable/tres"

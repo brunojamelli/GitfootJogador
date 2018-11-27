@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:layout_marginTop="100dp"
     android:paddingBottom="15dp"
-    tools:context=".JogadorActivity">
+    tools:context=".JogadorActivity"
+    android:id="@+id/telaCad">
 
 
     <TextView
@@ -35,6 +36,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Pé melhor" />
+    <Spinner
+        android:id="@+id/spPe"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
 
     <EditText
         android:id="@+id/etPe"
