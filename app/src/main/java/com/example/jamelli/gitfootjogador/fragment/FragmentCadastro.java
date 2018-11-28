@@ -24,6 +24,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.UUID;
 
@@ -32,11 +34,16 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
     private FirebaseDatabase fdatabase;
     private DatabaseReference dataref;
     private ChildEventListener clistener;
-    private EditText et_pe,et_pisicao,et_ps,et_pc;
-    private Spinner sp_pe;
+    private EditText et_ps,et_pc;
+    private Spinner sp_pe,sp_pos;
     private LinearLayout tela;
     public static Jogador jogSearch;
     private static final String[] CLUBES = new String[]{"Flamengo",  "Palmeiras", "Vasco", "Botafogo", "Cruzeiro", "Avaí", "América-MG", "Atlético-PR"};
+    private static final String[] POSICOES = new String[]
+            {"Goleiro", "Zagueiro", "Lateral Direito", "Lateral Esquerdo",
+                    "Volante", "Meia Armador", "Segundo Atacante","Centro Avante"};
+    private static final String[] PE_MELHOR = new String[]
+            {"Direito","Esquerdo","Ambos"};
     public FragmentCadastro() {
     }
 
@@ -50,17 +57,25 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
     }
 
     private void initViewObjects(View v){
-        et_pe = v.findViewById(R.id.etPe);
-        et_pisicao = v.findViewById(R.id.etPos);
+        //et_pe = v.findViewById(R.id.etPe);
+        //et_pisicao = v.findViewById(R.id.etPos);
         et_ps = v.findViewById(R.id.etPS);
         et_pc = v.findViewById(R.id.etPC);
         tela = v.findViewById(R.id.telaCad);
         btn_cad = v.findViewById(R.id.btnCadJogador);
         btn_cad.setOnClickListener(this);
         sp_pe = v.findViewById(R.id.spPe);
-        ArrayAdapter adp = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, CLUBES);
-        adp.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        sp_pe.setAdapter(adp);
+        sp_pos = v.findViewById(R.id.spPos);
+
+        ArrayAdapter adp1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, PE_MELHOR);
+        adp1.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        sp_pe.setAdapter(adp1);
+
+        ArrayAdapter adp2 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, POSICOES);
+        adp2.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        sp_pos.setAdapter(adp2);
+
+
     }
 
     private void initDBandAuth(){
@@ -68,14 +83,14 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
     }
 
     public void clearFields(){
-        et_pe.setText("");
-        et_pisicao.setText("");
+        sp_pe.setSelection(1);
+        sp_pos.setSelection(1);
         et_ps.setText("");
         et_pc.setText("");
     }
 
     public boolean checkExistingPlayer(String email){
-        clistener = new ChildEventListener() {
+        /*clistener = new ChildEventListener() {
 
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -99,6 +114,22 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
 
         if(FragmentCadastro.jogSearch!= null){
             return true;
+        }*/
+        Query query1 = dataref.orderByChild("email").equalTo(email).limitToFirst(1);
+        query1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.i("achou","achou -> "+dataSnapshot.toString());
+                FragmentCadastro.jogSearch =  dataSnapshot.getValue(Jogador.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        if(jogSearch != null){
+            return true;
         }
         return false;
 
@@ -106,28 +137,28 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(final View v) { //check for what button is pressed
         String texto="";
-        String sptext = sp_pe.getSelectedItem().toString();
-        Log.i("escolhido",sptext);
+        Log.i("escolhido",sp_pe.getSelectedItem().toString());
         switch (v.getId()) {
             case R.id.btnCadJogador:
-                if(!checkExistingPlayer(FirebaseUtil.getJogador().getEmail())){
-                        Log.i("cad1",String.valueOf(checkExistingPlayer(FirebaseUtil.getJogador().getEmail())));
-                        Log.i("cad2",FirebaseUtil.getJogador().getEmail());
-                        Jogador j = new Jogador(
-                                UUID.randomUUID().toString(),
-                                FirebaseUtil.getJogador().getPhotoUrl(),
-                                FirebaseUtil.getJogador().getEmail(),
-                                FirebaseUtil.getJogador().getNome(),
-                                et_pe.getText().toString(),
-                                et_pisicao.getText().toString(),
-                                Double.parseDouble(et_ps.getText().toString()),
-                                Double.parseDouble(et_pc.getText().toString())
-                        );
-                        dataref.child(j.getUid()).setValue(j);
-                        clearFields();
-                        texto = "Cadastro realizado com sucesso";
-                    }else{
-                        texto = "Desculpe, já existe jogador com esse email";
+                if(checkExistingPlayer(FirebaseUtil.getJogador().getEmail())){
+                    texto = "Desculpe, já existe jogador com esse email";
+                }else{
+                    Log.i("cad1",FirebaseUtil.getJogador().getEmail());
+                    Jogador j = new Jogador(
+                            UUID.randomUUID().toString(),
+                            FirebaseUtil.getJogador().getPhotoUrl(),
+                            FirebaseUtil.getJogador().getEmail(),
+                            FirebaseUtil.getJogador().getNome(),
+                            //et_pe.getText().toString(),
+                            sp_pe.getSelectedItem().toString(),
+                            sp_pos.getSelectedItem().toString(),
+                            //et_pisicao.getText().toString(),
+                            Double.parseDouble(et_ps.getText().toString()),
+                            Double.parseDouble(et_pc.getText().toString())
+                    );
+                    dataref.child(j.getUid()).setValue(j);
+                    clearFields();
+                    texto = "Cadastro realizado com sucesso";
                     }
                 Snackbar.make(tela, texto, Snackbar.LENGTH_LONG).show();
 

@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.jamelli.gitfootjogador.R;
 import com.example.jamelli.gitfootjogador.modelo.Jogador;
@@ -31,6 +33,9 @@ public class FragmentMostrar extends Fragment{
     private ChildEventListener clistener;
     private FirebaseDatabase fdatabase;
     private DatabaseReference dataref;
+    private Spinner sp_ord;
+    private static final String[] ORDENADORES = new String[]
+            {"nome","pe_melhor","posicao"};
     public FragmentMostrar() {
     }
 
@@ -40,10 +45,15 @@ public class FragmentMostrar extends Fragment{
         initDBandAuth();
         initViewObjects(v);
         readDatabase();
+        //readDatabaseClassified(sp_ord.getSelectedItem().toString());
         return v;
     }
     public void initViewObjects(View v){
         rv = v.findViewById(R.id.screenPlayers);
+        sp_ord = v.findViewById(R.id.spOrd);
+        ArrayAdapter adp = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, ORDENADORES);
+        adp.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        sp_ord.setAdapter(adp);
         jogadores = new ArrayList<>();
         adapter = new JogadorAdapter(getContext(),jogadores);
         rv.setAdapter(adapter);
@@ -89,6 +99,9 @@ public class FragmentMostrar extends Fragment{
     }
 
     public void readDatabaseClassified(String classified){
+        if(classified == null){
+            classified = "nome";
+        }
         Query read = dataref.child("jogador").orderByChild(classified);
         removeReadListener();
         read.addChildEventListener(clistener);
