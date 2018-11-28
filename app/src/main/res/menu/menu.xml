@@ -12,19 +12,19 @@
             android:title="Adicionar informações" />
 
         <item
-            android:id="@+id/nav_fourth_fragment"
-            android:icon="@drawable/tres"
-            android:title="Editar informações" />
-
-        <item
             android:id="@+id/nav_third_fragment"
             android:icon="@drawable/tres"
             android:title="Ver olheiros" />
 
         <item
-            android:id="@+id/nav_fifth_fragment"
+            android:id="@+id/nav_fourth_fragment"
             android:icon="@drawable/tres"
             android:title="Enviar sua localização" />
+
+        <item
+            android:id="@+id/nav_fifth_fragment"
+            android:icon="@drawable/tres"
+            android:title="Mapear Olheiros" />
 
         <item
             android:id="@+id/nav_sair"

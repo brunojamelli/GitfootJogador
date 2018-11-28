@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.example.jamelli.gitfootjogador.R;
 import com.example.jamelli.gitfootjogador.modelo.Jogador;
+import com.example.jamelli.gitfootjogador.util.GlideUtil;
 
 import java.util.List;
 
@@ -33,9 +34,7 @@ public class JogadorAdapter extends RecyclerView.Adapter{
         boolean photo = jchoise.getPhotoUrl() != null;
         if(photo){
             jholder.photoImageView.setVisibility(View.VISIBLE);
-            Glide.with(jholder.photoImageView.getContext())
-                    .load(jchoise.getPhotoUrl())
-                    .into(jholder.photoImageView);
+            GlideUtil.loadProfileIcon(jchoise.getPhotoUrl(),jholder.photoImageView);
         }else{
             jholder.photoImageView.setVisibility(View.GONE);
         }

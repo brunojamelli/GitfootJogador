@@ -79,7 +79,8 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
     }
 
     private void initDBandAuth(){
-        dataref = FirebaseUtil.getBaseRefJogador();
+        fdatabase = FirebaseDatabase.getInstance();
+        dataref = fdatabase.getReference().child("jogador");;
     }
 
     public void clearFields(){
@@ -89,32 +90,9 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
         et_pc.setText("");
     }
 
+    /*
     public boolean checkExistingPlayer(String email){
-        /*clistener = new ChildEventListener() {
 
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                Log.i("achou","achou -> "+dataSnapshot.toString());
-                FragmentCadastro.jogSearch =  dataSnapshot.getValue(Jogador.class);
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) { }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) { }
-        };
-        dataref.orderByChild("email").equalTo(email).addChildEventListener(clistener);
-
-        if(FragmentCadastro.jogSearch!= null){
-            return true;
-        }*/
         Query query1 = dataref.orderByChild("email").equalTo(email).limitToFirst(1);
         query1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -134,14 +112,15 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
         return false;
 
     }
+    */
     @Override
     public void onClick(final View v) { //check for what button is pressed
         String texto="";
         Log.i("escolhido",sp_pe.getSelectedItem().toString());
         switch (v.getId()) {
             case R.id.btnCadJogador:
-                if(checkExistingPlayer(FirebaseUtil.getJogador().getEmail())){
-                    texto = "Desculpe, já existe jogador com esse email";
+                if(et_pc.getText().toString().equals("") && et_ps.getText().toString().equals("")){
+                    texto = "Por favor, preencha todos os campos";
                 }else{
                     Log.i("cad1",FirebaseUtil.getJogador().getEmail());
                     Jogador j = new Jogador(
@@ -159,7 +138,7 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
                     dataref.child(j.getUid()).setValue(j);
                     clearFields();
                     texto = "Cadastro realizado com sucesso";
-                    }
+                }
                 Snackbar.make(tela, texto, Snackbar.LENGTH_LONG).show();
 
                 break;

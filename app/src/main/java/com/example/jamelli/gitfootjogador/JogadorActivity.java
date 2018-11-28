@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.jamelli.gitfootjogador.fragment.FragmentCadastro;
 import com.example.jamelli.gitfootjogador.fragment.FragmentInicio;
 import com.example.jamelli.gitfootjogador.fragment.FragmentLocalizacao;
+import com.example.jamelli.gitfootjogador.fragment.FragmentMapeamento;
 import com.example.jamelli.gitfootjogador.fragment.FragmentMostrar;
 import com.firebase.ui.auth.AuthUI;
 
@@ -60,13 +61,13 @@ public class JogadorActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_fourth_fragment:
-                        frags = new FragmentCadastro();
+                        frags = new FragmentLocalizacao();
                         drawer.closeDrawer(GravityCompat.START);
                         //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.nav_fifth_fragment:
-                        frags = new FragmentLocalizacao();
+                        frags = new FragmentMapeamento();
                         drawer.closeDrawer(GravityCompat.START);
                         //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;

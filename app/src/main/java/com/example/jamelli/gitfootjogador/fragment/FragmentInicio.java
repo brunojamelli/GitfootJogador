@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.jamelli.gitfootjogador.R;
 import com.example.jamelli.gitfootjogador.util.FirebaseUtil;
+import com.example.jamelli.gitfootjogador.util.GlideUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -34,10 +35,7 @@ public class FragmentInicio extends Fragment{
         photoUrl = FirebaseUtil.getJogador().getPhotoUrl();
         nome = FirebaseUtil.getJogador().getNome();
         txInicio.setText(getString(R.string.bem_vindo) +" "+nome);
-        Glide.with(profileFoto.getContext())
-                    .load(photoUrl)
-                    .into(profileFoto);
-
+        GlideUtil.loadProfileIcon(photoUrl,profileFoto);
 
 
         return v;
