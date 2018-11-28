@@ -42,9 +42,9 @@ public class JogadorAdapter extends RecyclerView.Adapter{
         jholder.emailTextView.setText(jchoise.getEmail());
         jholder.nomeTextView.setText(jchoise.getNome());
         jholder.posicaoTextView.setText(jchoise.getPosicao());
-        if(jchoise.getPe_melhor().equals("direito")){
+        if(jchoise.getPe_melhor().toLowerCase().equals("direito")){
             jholder.peTextView.setText("destro");
-        }else if(jchoise.getPe_melhor().equals("esquerdo")){
+        }else if(jchoise.getPe_melhor().toLowerCase().equals("esquerdo")){
             jholder.peTextView.setText("canhoto");
         }else{
             jholder.peTextView.setText("ambidestro");

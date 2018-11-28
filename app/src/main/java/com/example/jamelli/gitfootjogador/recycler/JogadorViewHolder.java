@@ -7,8 +7,11 @@ import android.widget.TextView;
 
 import com.example.jamelli.gitfootjogador.R;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class JogadorViewHolder extends RecyclerView.ViewHolder{
-    final ImageView photoImageView;
+    //final ImageView photoImageView;
+    final CircleImageView photoImageView;
     final TextView emailTextView;
     final TextView nomeTextView;
     final TextView peTextView;

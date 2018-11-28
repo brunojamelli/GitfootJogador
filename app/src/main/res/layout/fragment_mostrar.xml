@@ -5,25 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="100dp"
-    android:paddingBottom="15dp"
+    android:paddingBottom="10dp"
     tools:context=".JogadorActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+    <TextView
+        android:id="@+id/tv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="4">
-            <TextView
-                android:id="@+id/tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tela mostrar jogador" />
-            <Spinner
-                android:id="@+id/spOrd"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:text="Escolha como ordenar" />
+
+    <Spinner
+        android:id="@+id/spOrd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"/>
+
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
