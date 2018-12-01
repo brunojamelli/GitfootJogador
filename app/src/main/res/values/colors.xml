@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorLaranja">#FF4500</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBarra">#304ffe</color>
+    <color name="purple">#6200ea</color>
+    <color name="fundo">#ede7f6</color>
 </resources>

@@ -26,7 +26,7 @@ public class JogadorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogador);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
@@ -45,37 +45,29 @@ public class JogadorActivity extends AppCompatActivity {
                 switch (idItem){
                     case R.id.nav_first_fragment:
                         frags = new FragmentInicio();
+                        toolbar.setTitle("Inicio");
                         drawer.closeDrawer(GravityCompat.START);
-                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nav_second_fragment:
                         frags = new FragmentCadastro();
+                        toolbar.setTitle("Adicionar Informações");
                         drawer.closeDrawer(GravityCompat.START);
-                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.nav_third_fragment:
-                        frags = new FragmentMostrar();
-                        drawer.closeDrawer(GravityCompat.START);
-                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
-                        break;
-
-                    case R.id.nav_fourth_fragment:
                         frags = new FragmentLocalizacao();
+                        toolbar.setTitle("Enviar Localização");
                         drawer.closeDrawer(GravityCompat.START);
-                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
-
-                    case R.id.nav_fifth_fragment:
+                case R.id.nav_fifth_fragment:
                         frags = new FragmentMapeamento();
+                        toolbar.setTitle("Mapeando os olheiros");
                         drawer.closeDrawer(GravityCompat.START);
-                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.nav_sair:
                         drawer.closeDrawer(GravityCompat.START);
                         AuthUI.getInstance().signOut(JogadorActivity.this);
-                        //Toast.makeText(JogadorActivity.this, "ID:"+idItem, Toast.LENGTH_SHORT).show();
                         break;
                 }
                 if(idItem != R.id.nav_sair){
@@ -86,12 +78,10 @@ public class JogadorActivity extends AppCompatActivity {
             }
         });
     }
+
+
     @Override
     public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+
     }
 }

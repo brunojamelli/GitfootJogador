@@ -2,33 +2,28 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_first_fragment"
-            android:icon="@drawable/um"
+            android:icon="@drawable/ic_home_black_48dp"
             android:title="Inicio"
             android:checked="true"/>
 
         <item
             android:id="@+id/nav_second_fragment"
-            android:icon="@drawable/dois"
+            android:icon="@drawable/ic_save_black_48dp"
             android:title="Adicionar informações" />
 
         <item
             android:id="@+id/nav_third_fragment"
-            android:icon="@drawable/tres"
-            android:title="Ver olheiros" />
-
-        <item
-            android:id="@+id/nav_fourth_fragment"
-            android:icon="@drawable/tres"
-            android:title="Enviar sua localização" />
+            android:icon="@drawable/ic_location_on_black_48dp"
+            android:title="Enviar sua Localização" />
 
         <item
             android:id="@+id/nav_fifth_fragment"
-            android:icon="@drawable/tres"
-            android:title="Mapear Olheiros" />
+            android:icon="@drawable/ic_explore_black_48dp"
+            android:title="Mapear Jogadores" />
 
         <item
             android:id="@+id/nav_sair"
-            android:icon="@drawable/tres"
+            android:icon="@drawable/ic_exit_to_app"
             android:title="Sair" />
 
     </group>

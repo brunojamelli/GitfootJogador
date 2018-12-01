@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".JogadorActivity"
-    tools:layout_editor_absoluteY="25dp">
+    tools:layout_editor_absoluteY="25dp"
+    android:paddingEnd="30dp"
+    android:paddingStart="30dp">
 
 
     <TextView
