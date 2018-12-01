@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                                     .createSignInIntentBuilder()
                                     .setIsSmartLockEnabled(false)
                                     .setAvailableProviders(providers)
+                                    .setLogo(R.drawable.soccer_ball)
                                     .build(),
                             LOGIN_CODE);
                 }
