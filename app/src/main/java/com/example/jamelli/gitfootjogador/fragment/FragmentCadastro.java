@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import com.example.jamelli.gitfootjogador.R;
 import com.example.jamelli.gitfootjogador.modelo.Jogador;
 import com.example.jamelli.gitfootjogador.util.FirebaseUtil;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,6 +54,20 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
         btn_cad = v.findViewById(R.id.btnCadJogador);
         initViewObjects(v);
         initDBandAuth();
+        String photoUrl = FirebaseUtil.getJogador().getPhotoUrl();
+        if(FirebaseUtil.getJogador().getNome() == null){
+            Log.i("seila1","Sem provider ainda");
+            Log.i("seila1","Provider de id"+FirebaseUtil.getCurrentUserId());
+        }else {
+            if(photoUrl == null){
+                photoUrl = "";
+            }else{
+                Log.i("seila1","Provider de id"+FirebaseUtil.getCurrentUserId());
+                Log.i("seila2", FirebaseUtil.getJogador().getNome());
+                Log.i("seila3",FirebaseUtil.getJogador().getEmail());
+            }
+        }
+
         return v;
     }
 

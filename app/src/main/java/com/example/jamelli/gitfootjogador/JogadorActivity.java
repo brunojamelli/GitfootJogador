@@ -9,7 +9,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jamelli.gitfootjogador.fragment.FragmentCadastro;
@@ -17,11 +19,21 @@ import com.example.jamelli.gitfootjogador.fragment.FragmentInicio;
 import com.example.jamelli.gitfootjogador.fragment.FragmentLocalizacao;
 import com.example.jamelli.gitfootjogador.fragment.FragmentMapeamento;
 import com.example.jamelli.gitfootjogador.fragment.FragmentMostrar;
+import com.example.jamelli.gitfootjogador.util.FirebaseUtil;
+import com.example.jamelli.gitfootjogador.util.GlideUtil;
 import com.firebase.ui.auth.AuthUI;
+import com.google.firebase.auth.FirebaseUser;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class JogadorActivity extends AppCompatActivity {
     DrawerLayout drawer;
     NavigationView navigationView;
+    TextView txtNome;
+    TextView txtEmail;
+    CircleImageView photo;
+    String photoUrl,nome,email;
+    FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +47,17 @@ public class JogadorActivity extends AppCompatActivity {
         toggle.syncState();
 
         navigationView = findViewById(R.id.nav_view);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, new FragmentInicio()).commit();
+        txtNome = navigationView.getHeaderView(0).findViewById(R.id.tv_bv2);
+        photo = navigationView.getHeaderView(0).findViewById(R.id.profile_image2);
+        try{
+            nome = FirebaseUtil.getJogador().getNome();
+            photoUrl = FirebaseUtil.getJogador().getPhotoUrl();
+            txtNome.setText(nome);
+            GlideUtil.loadProfileIcon(photoUrl,photo);
+        }catch (NullPointerException e){
+            Log.i("deu bode",e.toString());
+        }
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, new FragmentCadastro()).commit();
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -44,7 +66,7 @@ public class JogadorActivity extends AppCompatActivity {
 
                 switch (idItem){
                     case R.id.nav_first_fragment:
-                        frags = new FragmentInicio();
+                        //frags = new FragmentInicio();
                         toolbar.setTitle("Inicio");
                         drawer.closeDrawer(GravityCompat.START);
                         break;
