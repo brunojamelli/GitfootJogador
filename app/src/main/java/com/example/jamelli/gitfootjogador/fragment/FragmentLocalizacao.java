@@ -16,22 +16,27 @@ import android.widget.Toast;
 
 import com.example.jamelli.gitfootjogador.R;
 import com.example.jamelli.gitfootjogador.util.FirebaseUtil;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class FragmentLocalizacao extends Fragment{
+public class FragmentLocalizacao extends Fragment implements View.OnClickListener,OnMapReadyCallback,
+        GoogleMap.OnMyLocationClickListener,
+        GoogleMap.OnMyLocationButtonClickListener{
     private Button btn_loc;
     private FirebaseDatabase fdatabase;
     private DatabaseReference dataref;
     private GoogleMap mMap;
     private final int CODE_LOCATION = 58;
-    //private FusedLocationProviderClient locationClient;
+    private FusedLocationProviderClient locationClient;
     private Location myLocation;
     public FragmentLocalizacao(){
 
@@ -40,15 +45,15 @@ public class FragmentLocalizacao extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle b) {
         View v = inflater.inflate(R.layout.fragment_localizar, container, false);
-        /*btn_loc = v.findViewById(R.id.btnLocalizar);
+        btn_loc = v.findViewById(R.id.btnLocalizar);
         SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager().findFragmentById(R.id.mapa);
         mapFragment.getMapAsync(this);
         locationClient = LocationServices.getFusedLocationProviderClient(getActivity());
         btn_loc.setOnClickListener(this);
-        initDBandAuth();*/
+        initDBandAuth();
         return v;
     }
-    /*
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -130,5 +135,5 @@ public class FragmentLocalizacao extends Fragment{
     public boolean onMyLocationButtonClick() {
         Toast.makeText(getActivity(), "Aproximando a sua localização no mapa", Toast.LENGTH_SHORT).show();
         return false;
-    }*/
+    }
 }
