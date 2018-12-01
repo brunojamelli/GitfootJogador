@@ -55,8 +55,7 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
         initViewObjects(v);
         initDBandAuth();
         String photoUrl = FirebaseUtil.getJogador().getPhotoUrl();
-        if(FirebaseUtil.getJogador().getNome() == null){
-            Log.i("seila1","Sem provider ainda");
+        /*if(FirebaseUtil.getJogador().getNome() == null){
             Log.i("seila1","Provider de id"+FirebaseUtil.getCurrentUserId());
         }else {
             if(photoUrl == null){
@@ -66,7 +65,7 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
                 Log.i("seila2", FirebaseUtil.getJogador().getNome());
                 Log.i("seila3",FirebaseUtil.getJogador().getEmail());
             }
-        }
+        }*/
 
         return v;
     }
@@ -105,54 +104,43 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
         et_pc.setText("");
     }
 
-    /*
-    public boolean checkExistingPlayer(String email){
-
-        Query query1 = dataref.orderByChild("email").equalTo(email).limitToFirst(1);
-        query1.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.i("achou","achou -> "+dataSnapshot.toString());
-                FragmentCadastro.jogSearch =  dataSnapshot.getValue(Jogador.class);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        if(jogSearch != null){
-            return true;
-        }
-        return false;
-
-    }
-    */
     @Override
     public void onClick(final View v) { //check for what button is pressed
         String texto="";
-        Log.i("escolhido",sp_pe.getSelectedItem().toString());
+        String photoUrl = FirebaseUtil.getJogador().getPhotoUrl();
+
         switch (v.getId()) {
             case R.id.btnCadJogador:
                 if(et_pc.getText().toString().equals("") && et_ps.getText().toString().equals("")){
                     texto = "Por favor, preencha todos os campos";
                 }else{
-                    Log.i("cad1",FirebaseUtil.getJogador().getEmail());
-                    Jogador j = new Jogador(
-                            UUID.randomUUID().toString(),
-                            FirebaseUtil.getJogador().getPhotoUrl(),
-                            FirebaseUtil.getJogador().getEmail(),
-                            FirebaseUtil.getJogador().getNome(),
-                            //et_pe.getText().toString(),
-                            sp_pe.getSelectedItem().toString(),
-                            sp_pos.getSelectedItem().toString(),
-                            //et_pisicao.getText().toString(),
-                            Double.parseDouble(et_ps.getText().toString()),
-                            Double.parseDouble(et_pc.getText().toString())
-                    );
-                    dataref.child(j.getUid()).setValue(j);
-                    clearFields();
-                    texto = "Cadastro realizado com sucesso";
+                    if(FirebaseUtil.getJogador().getNome() == null){
+                        Log.i("seila1","Provider de id"+FirebaseUtil.getCurrentUserId());
+                    }else {
+                        if(photoUrl == null){
+                            photoUrl = "";
+                        }else{
+                            Log.i("seila1","Provider de id"+FirebaseUtil.getCurrentUserId());
+                            Log.i("seila2", FirebaseUtil.getJogador().getNome());
+                            Log.i("seila3",FirebaseUtil.getJogador().getEmail());
+                            Jogador j = new Jogador(
+                                    //UUID.randomUUID().toString(),
+                                    FirebaseUtil.getCurrentUserId(),
+                                    photoUrl,
+                                    FirebaseUtil.getJogador().getEmail(),
+                                    FirebaseUtil.getJogador().getNome(),
+                                    //et_pe.getText().toString(),
+                                    sp_pe.getSelectedItem().toString(),
+                                    sp_pos.getSelectedItem().toString(),
+                                    //et_pisicao.getText().toString(),
+                                    Double.parseDouble(et_ps.getText().toString()),
+                                    Double.parseDouble(et_pc.getText().toString())
+                            );
+                            dataref.child(j.getUid()).setValue(j);
+                            clearFields();
+                            texto = "Cadastro realizado com sucesso";
+                        }
+                    }
                 }
                 Snackbar.make(tela, texto, Snackbar.LENGTH_LONG).show();
 

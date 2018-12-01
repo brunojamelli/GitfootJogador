@@ -66,7 +66,7 @@ public class JogadorActivity extends AppCompatActivity {
 
                 switch (idItem){
                     case R.id.nav_first_fragment:
-                        //frags = new FragmentInicio();
+                        frags = new FragmentInicio();
                         toolbar.setTitle("Inicio");
                         drawer.closeDrawer(GravityCompat.START);
                         break;

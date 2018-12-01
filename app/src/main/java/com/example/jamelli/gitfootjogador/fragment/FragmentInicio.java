@@ -20,7 +20,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FragmentInicio extends Fragment{
     private TextView txInicio;
-    private CircleImageView profileFoto;
     private String nome;
     private String photoUrl;
     public static String uid;
@@ -31,11 +30,7 @@ public class FragmentInicio extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle b) {
         View v = inflater.inflate(R.layout.fragment_inicio, container, false);
         txInicio = v.findViewById(R.id.tv_bv);
-        profileFoto = v.findViewById(R.id.profile_image);
-        photoUrl = FirebaseUtil.getJogador().getPhotoUrl();
-        nome = FirebaseUtil.getJogador().getNome();
-        txInicio.setText(getString(R.string.bem_vindo) +" "+nome);
-        GlideUtil.loadProfileIcon(photoUrl,profileFoto);
+        txInicio.setText("Opa");
 
 
         return v;
