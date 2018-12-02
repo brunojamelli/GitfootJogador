@@ -76,6 +76,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cadastrar Jogador"
+        android:background="@drawable/botao_custumizado"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
         />
 
 </LinearLayout>
