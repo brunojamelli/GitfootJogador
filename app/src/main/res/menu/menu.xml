@@ -9,20 +9,20 @@
         <item
             android:id="@+id/nav_cadastro_fragment"
             android:icon="@drawable/ic_save_black_48dp"
-            android:title="Adicionar informações" />
+            android:title="Adicionar Informações" />
 
         <item
             android:id="@+id/nav_localizacao_fragment"
             android:icon="@drawable/ic_location_on_black_48dp"
-            android:title="Enviar sua Localização" />
+            android:title="Salvar Localização" />
 
         <item
             android:id="@+id/nav_mapeamento_fragment"
             android:icon="@drawable/ic_explore_black_48dp"
-            android:title="Mapear Jogadores" />
+            android:title="Mapear Olheiros" />
         <item
             android:id="@+id/nav_abaout_fragment"
-            android:icon="@drawable/ic_explore_black_48dp"
+            android:icon="@drawable/ic_info_black_48dp"
             android:title="Sobre" />
 
         <item

@@ -30,6 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.UUID;
 
+import br.com.concrete.canarinho.watcher.ValorMonetarioWatcher;
+
 public class FragmentCadastro extends Fragment implements View.OnClickListener{
     private Button btn_cad;
     private FirebaseDatabase fdatabase;
@@ -54,6 +56,7 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
         btn_cad = v.findViewById(R.id.btnCadJogador);
         initViewObjects(v);
         initDBandAuth();
+
         String photoUrl = FirebaseUtil.getJogador().getPhotoUrl();
         /*if(FirebaseUtil.getJogador().getNome() == null){
             Log.i("seila1","Provider de id"+FirebaseUtil.getCurrentUserId());
@@ -71,8 +74,6 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
     }
 
     private void initViewObjects(View v){
-        //et_pe = v.findViewById(R.id.etPe);
-        //et_pisicao = v.findViewById(R.id.etPos);
         et_ps = v.findViewById(R.id.etPS);
         et_pc = v.findViewById(R.id.etPC);
         tela = v.findViewById(R.id.telaCad);
@@ -88,7 +89,6 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
         ArrayAdapter adp2 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, POSICOES);
         adp2.setDropDownViewResource(android.R.layout.simple_spinner_item);
         sp_pos.setAdapter(adp2);
-
 
     }
 
@@ -123,6 +123,7 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
                             Log.i("seila1","Provider de id"+FirebaseUtil.getCurrentUserId());
                             Log.i("seila2", FirebaseUtil.getJogador().getNome());
                             Log.i("seila3",FirebaseUtil.getJogador().getEmail());
+
                             Jogador j = new Jogador(
                                     //UUID.randomUUID().toString(),
                                     FirebaseUtil.getCurrentUserId(),
