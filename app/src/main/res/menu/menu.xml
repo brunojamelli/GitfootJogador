@@ -1,25 +1,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_first_fragment"
+            android:id="@+id/nav_home_fragment"
             android:icon="@drawable/ic_home_black_48dp"
             android:title="Inicio"
             android:checked="true"/>
 
         <item
-            android:id="@+id/nav_second_fragment"
+            android:id="@+id/nav_cadastro_fragment"
             android:icon="@drawable/ic_save_black_48dp"
             android:title="Adicionar informações" />
 
         <item
-            android:id="@+id/nav_third_fragment"
+            android:id="@+id/nav_localizacao_fragment"
             android:icon="@drawable/ic_location_on_black_48dp"
             android:title="Enviar sua Localização" />
 
         <item
-            android:id="@+id/nav_fifth_fragment"
+            android:id="@+id/nav_mapeamento_fragment"
             android:icon="@drawable/ic_explore_black_48dp"
             android:title="Mapear Jogadores" />
+        <item
+            android:id="@+id/nav_abaout_fragment"
+            android:icon="@drawable/ic_explore_black_48dp"
+            android:title="Sobre" />
 
         <item
             android:id="@+id/nav_sair"

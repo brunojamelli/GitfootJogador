@@ -19,6 +19,7 @@ import com.example.jamelli.gitfootjogador.fragment.FragmentInicio;
 import com.example.jamelli.gitfootjogador.fragment.FragmentLocalizacao;
 import com.example.jamelli.gitfootjogador.fragment.FragmentMapeamento;
 import com.example.jamelli.gitfootjogador.fragment.FragmentMostrar;
+import com.example.jamelli.gitfootjogador.fragment.FragmentSobre;
 import com.example.jamelli.gitfootjogador.util.FirebaseUtil;
 import com.example.jamelli.gitfootjogador.util.GlideUtil;
 import com.firebase.ui.auth.AuthUI;
@@ -65,25 +66,29 @@ public class JogadorActivity extends AppCompatActivity {
                 Fragment frags = null;
 
                 switch (idItem){
-                    case R.id.nav_first_fragment:
+                    case R.id.nav_home_fragment:
                         frags = new FragmentInicio();
                         toolbar.setTitle("Inicio");
                         drawer.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.nav_second_fragment:
+                    case R.id.nav_cadastro_fragment:
                         frags = new FragmentCadastro();
                         toolbar.setTitle("Adicionar Informações");
                         drawer.closeDrawer(GravityCompat.START);
                         break;
-
-                    case R.id.nav_third_fragment:
+                    case R.id.nav_localizacao_fragment:
                         frags = new FragmentLocalizacao();
                         toolbar.setTitle("Enviar Localização");
                         drawer.closeDrawer(GravityCompat.START);
                         break;
-                case R.id.nav_fifth_fragment:
+                    case R.id.nav_mapeamento_fragment:
                         frags = new FragmentMapeamento();
                         toolbar.setTitle("Mapeando os olheiros");
+                        drawer.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.nav_abaout_fragment:
+                        frags = new FragmentSobre();
+                        toolbar.setTitle("Sobre");
                         drawer.closeDrawer(GravityCompat.START);
                         break;
 

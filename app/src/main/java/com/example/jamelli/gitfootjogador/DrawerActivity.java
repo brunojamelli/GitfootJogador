@@ -37,14 +37,14 @@ public class DrawerActivity extends AppCompatActivity {
             Fragment fragmentSelecionado = null;
 
             switch (item.getItemId()){
-                case R.id.nav_first_fragment:
+                case R.id.nav_home_fragment:
                     fragmentSelecionado = new FragmentInicio();
                     break;
-                case R.id.nav_second_fragment:
+                case R.id.nav_cadastro_fragment:
                     fragmentSelecionado = new FragmentCadastro();
                     break;
 
-                case R.id.nav_third_fragment:
+                case R.id.nav_mapeamento_fragment:
                     fragmentSelecionado = new FragmentMostrar();
                     break;
 
