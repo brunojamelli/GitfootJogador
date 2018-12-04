@@ -46,7 +46,7 @@ public class JogadorActivity extends AppCompatActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
+        toolbar.setTitle("Inicio");
         navigationView = findViewById(R.id.nav_view);
         txtNome = navigationView.getHeaderView(0).findViewById(R.id.tv_bv2);
         photo = navigationView.getHeaderView(0).findViewById(R.id.profile_image2);

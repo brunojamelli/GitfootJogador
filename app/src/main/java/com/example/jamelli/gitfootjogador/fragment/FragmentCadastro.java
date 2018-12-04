@@ -82,12 +82,12 @@ public class FragmentCadastro extends Fragment implements View.OnClickListener{
         sp_pe = v.findViewById(R.id.spPe);
         sp_pos = v.findViewById(R.id.spPos);
 
-        ArrayAdapter adp1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, PE_MELHOR);
-        adp1.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        ArrayAdapter adp1 = new ArrayAdapter<String>(getActivity(), R.layout.spinner_item, PE_MELHOR);
+        adp1.setDropDownViewResource(R.layout.spinner_item);
         sp_pe.setAdapter(adp1);
 
-        ArrayAdapter adp2 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, POSICOES);
-        adp2.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        ArrayAdapter adp2 = new ArrayAdapter<String>(getActivity(), R.layout.spinner_item, POSICOES);
+        adp2.setDropDownViewResource(R.layout.spinner_item);
         sp_pos.setAdapter(adp2);
 
     }
