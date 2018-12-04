@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
-    android:background="@color/fundo">
+    android:background="@color/colorWhite">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -24,8 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            android:background="@color/purple"
-            app:titleTextColor="@color/colorWhite"
+            android:background="@color/fundo"
+            app:titleTextColor="@color/fonte"
             />
 
 
