@@ -1,9 +1,9 @@
 <h1 align="center">
 <br>
-  <img src="YOUR_LOGO_URL" alt="YOUR_PROJECT_NAME" width="120">
+  <img src="screenshots/icon.png" alt="Gitfoot Jogador" width="120">
 <br>
 <br>
-YOUR_PROJECT_NAME
+GITFOOT JOGADOR
 </h1>
 
 <p align="center">A little description about your project</p>
@@ -16,8 +16,13 @@ YOUR_PROJECT_NAME
 
 [//]: # (Add your gifs/images here:)
 <div>
-  <img src="screenshots/" alt="demo" height="260">
-  <img src="screenshots/" alt="demo" height="260">
+  <img src="screenshots/home.jpeg" alt="demo" height="260">
+  <img src="screenshots/tela2.jpeg" alt="demo" height="260">
+  <img src="screenshots/tela3.jpeg" alt="demo" height="260">
+  <img src="screenshots/tela4.jpeg" alt="demo" height="260">
+  <img src="screenshots/tela5.jpeg" alt="demo" height="260">
+  <img src="screenshots/tela6.jpeg" alt="demo" height="260">
+  <img src="screenshots/tela7.jpeg" alt="demo" height="260">
 </div>
 
 <hr />
