@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img src="screenshots/icon.png" alt="Gitfoot Jogador" width="120">
+  <img src="images/icon.png" alt="Gitfoot Jogador" width="120">
 <br>
 <br>
 GITFOOT PLAYER
@@ -15,14 +15,14 @@ GITFOOT PLAYER
 </p>
 
 [//]: # (Add your gifs/images here:)
-<div>
-  <img src="screenshots/home.jpeg" alt="demo" height="260">
-  <img src="screenshots/tela2.jpeg" alt="demo" height="260">
-  <img src="screenshots/tela3.jpeg" alt="demo" height="260">
-  <img src="screenshots/tela4.jpeg" alt="demo" height="260">
-  <img src="screenshots/tela5.jpeg" alt="demo" height="260">
-  <img src="screenshots/tela6.jpeg" alt="demo" height="260">
-  <img src="screenshots/tela7.jpeg" alt="demo" height="260">
+<div align="center">
+  <img src="images/home.jpeg" alt="demo" height="600" width="300">
+  <img src="images/tela2.jpeg" alt="demo" height="600" width="300">
+  <img src="images/tela3.jpeg" alt="demo" height="600" width="300">
+  <img src="images/tela4.jpeg" alt="demo" height="600" width="300">
+  <img src="images/tela5.jpeg" alt="demo" height="600" width="300">
+  <img src="images/tela6.jpeg" alt="demo" height="600" width="300">
+  <img src="images/tela7.jpeg" alt="demo" height="600" width="300">
 </div>
 
 <hr />
